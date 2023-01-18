@@ -1,0 +1,7 @@
+C:\Users\monti\source\repos\fnf-gta\fnf-gta\obj\Release\fnf-gta.csproj.AssemblyReference.cache
+C:\Users\monti\source\repos\fnf-gta\fnf-gta\obj\Release\fnf-gta.csproj.CoreCompileInputs.cache
+E:\SteamLibrary\steamapps\common\Grand Theft Auto V\scripts\fnf-gta.dll
+E:\SteamLibrary\steamapps\common\Grand Theft Auto V\scripts\fnf-gta.pdb
+C:\Users\monti\source\repos\fnf-gta\fnf-gta\obj\Release\fnf-gta.csproj.CopyComplete
+C:\Users\monti\source\repos\fnf-gta\fnf-gta\obj\Release\fnf-gta.dll
+C:\Users\monti\source\repos\fnf-gta\fnf-gta\obj\Release\fnf-gta.pdb
