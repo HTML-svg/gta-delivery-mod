@@ -58,7 +58,7 @@ namespace delivery
 
                                 Model packageModel = new Model("prop_cs_package_01");
                                 packageModel.Request(10000);
-                                MissionIndex = 10;
+                                
                                 if (packageModel.IsValid & packageModel.IsInCdImage)
                                 {
                                     while (!packageModel.IsLoaded) Script.Wait(50);
