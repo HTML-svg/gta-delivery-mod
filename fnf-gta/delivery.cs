@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using GTA;
 using GTA.Native;
@@ -9,10 +9,14 @@ namespace delivery
 {
     public class Main : Script
     {
+        // Mission 1
         int MissionIndex = -1;
         int PackageIndex = -1;
+        // Section 1
         bool isPackage = false;
+        // Section 2
         bool isMission = false;
+ 
         Blip MissionBlip;
 
         Prop MissionPackage;
@@ -39,15 +43,6 @@ namespace delivery
                                 MissionBlip.Color = BlipColor.Green2;
                                 MissionBlip.Name = "Michael's Package";
                                 MissionBlip.ShowRoute = true;
-
-                                Model packageModel = new Model("prop_cs_package_01");
-                                packageModel.Request(10000);
-                                if(packageModel.IsValid & packageModel.IsInCdImage)
-                                {
-                                    while (!packageModel.IsLoaded) Script.Wait(50);
-                                    MissionPackage = World.CreateProp(packageModel, oneMissionPos, false, true);
-                                    MissionIndex = 10;
-                                }
                             }
                         }
                         break;
@@ -60,6 +55,16 @@ namespace delivery
                                     MissionBlip.ShowRoute = false;
                                 }
                                 UI.Notify("Steal Michael's Package");
+
+                                Model packageModel = new Model("prop_cs_package_01");
+                                packageModel.Request(10000);
+                                MissionIndex = 10;
+                                if (packageModel.IsValid & packageModel.IsInCdImage)
+                                {
+                                    while (!packageModel.IsLoaded) Script.Wait(50);
+                                    MissionPackage = World.CreateProp(packageModel, oneMissionPos, false, true);
+                                }
+
                                 MissionIndex = 20;
                             }
                         }
