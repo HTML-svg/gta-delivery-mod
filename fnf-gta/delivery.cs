@@ -16,6 +16,9 @@ namespace delivery
         bool isPackage = false;
         // Section 2
         bool isMission = false;
+        // Mission 2
+        bool isDelivered = false;
+        int DeliverIndex = -1;
  
         Blip MissionBlip;
 
@@ -43,6 +46,15 @@ namespace delivery
                                 MissionBlip.Color = BlipColor.Green2;
                                 MissionBlip.Name = "Michael's Package";
                                 MissionBlip.ShowRoute = true;
+                                
+                                Model packageModel = new Model("prop_cs_package_01");
+                                packageModel.Request(10000);
+                                MissionIndex = 10;
+                                if (packageModel.IsValid & packageModel.IsInCdImage)
+                                {
+                                    while (!packageModel.IsLoaded) Script.Wait(50);
+                                    MissionPackage = World.CreateProp(packageModel, oneMissionPos, false, true);
+                                }
                             }
                         }
                         break;
@@ -55,16 +67,6 @@ namespace delivery
                                     MissionBlip.ShowRoute = false;
                                 }
                                 UI.Notify("Steal Michael's Package");
-
-                                Model packageModel = new Model("prop_cs_package_01");
-                                packageModel.Request(10000);
-                                
-                                if (packageModel.IsValid & packageModel.IsInCdImage)
-                                {
-                                    while (!packageModel.IsLoaded) Script.Wait(50);
-                                    MissionPackage = World.CreateProp(packageModel, oneMissionPos, false, true);
-                                }
-
                                 MissionIndex = 20;
                             }
                         }
@@ -174,7 +176,21 @@ namespace delivery
 
                                 isPackage = false;
                                 MissionIndex = -1;
+
+                                isDelivered = true;
+                                DeliverIndex = 0;
                             }
+                        }
+                        break;
+                }
+            }
+            if (isDelivered)
+            {
+                switch(DeliverIndex)
+                {
+                    case 0:
+                        {
+                            
                         }
                         break;
                 }
